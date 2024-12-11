@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  discovery-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: alexjuep/discovery-service:latest
+    container_name: discovery-service
+    ports:
+      - "8761:8761"
+    environment:
+      SPRING_APPLICATION_NAME: discovery-service
+      EUREKA_CLIENT_REGISTER_WITH_EUREKA: "false"
+      EUREKA_CLIENT_FETCH_REGISTRY: "false"
